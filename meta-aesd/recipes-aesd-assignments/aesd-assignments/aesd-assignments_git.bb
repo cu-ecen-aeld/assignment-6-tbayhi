@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-tbayhi;prot
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "c66d3ba20b137a84ba272d3bd8ea626b0d576a74"
+SRCREV = "7896dea32a723e68dd69bc824b2eb70ad2f4389c"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -23,7 +23,7 @@ FILES:${PN} += "${sysconfdir}/init.d/S99aesdsocket"
 
 # TODO: customize these as necessary for any libraries you need for your application
 # (and remove comment)
-TARGET_LDFLAGS += "-pthread -lrt"
+TARGET_LDFLAGS += "-pthread"
 
 do_configure () {
 	:
