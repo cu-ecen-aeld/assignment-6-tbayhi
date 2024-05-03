@@ -2,6 +2,10 @@
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
+inherit update-rc.d
+
+INITSCRIPT_NAME = "S99aesdsocket"
+
 # TODO: Set this  with the path to your assignments rep.  Use ssh protocol and see lecture notes
 # about how to setup ssh-agent for passwordless access
 SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-tbayhi;protocol=ssh;branch=master"
@@ -33,16 +37,6 @@ do_compile () {
 	oe_runmake
 }
 
-#	$(INSTALL) -d 0755 $(@D)/conf/ $(TARGET_DIR)/etc/finder-app/conf/
-#	$(INSTALL) -m 0755 $(@D)/conf/* $(TARGET_DIR)/etc/finder-app/conf/
-#	$(INSTALL) -m 0755 $(@D)/assignment-autotest/test/assignment4/* $(TARGET_DIR)/bin
-#
-#	$(INSTALL) -m 0755 $(@D)/finder-app/writer $(TARGET_DIR)/bin
-#	$(INSTALL) -m 0755 $(@D)/finder-app/*.sh $(TARGET_DIR)/bin
-#
-#	# Added for assignment 5
-#	$(INSTALL) -m 0755 $(@D)/server/aesdsocket $(TARGET_DIR)/usr/bin
-#	$(INSTALL) -m 0755 $(@D)/server/aesdsocket-start-stop $(TARGET_DIR)/etc/init.d/S99aesdsocket
 
 do_install () {
 	# TODO: Install your binaries/scripts here.
@@ -52,12 +46,6 @@ do_install () {
 	# and
 	# https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-S
 	# See example at https://github.com/cu-ecen-aeld/ecen5013-yocto/blob/ecen5013-hello-world/meta-ecen5013/recipes-ecen5013/ecen5013-hello-world/ecen5013-hello-world_git.bb
-#	install -d 0755 $???/conf/ ${D}/etc/finder-app/conf/
-#	install -m 0755 $???/conf/* ${D}/etc/finder-app/conf/
-#	install -m 0755 $???/assignment-autotest/test/assignment6/* ${D}/bin
-
-#	install -m 0755 $???/finder-app/writer ${D}/bin
-#	install -m 0755 $???/finder-app/*.sh ${D}/bin
 
 	install -d ${D}${bindir}
 	install -m 0755 ${S}/aesdsocket ${D}${bindir}/
