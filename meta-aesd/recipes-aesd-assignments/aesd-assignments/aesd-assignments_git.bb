@@ -60,6 +60,6 @@ do_install () {
 #	install -m 0755 $???/finder-app/*.sh ${D}/bin
 
 	install -d ${D}${bindir}
-	install -m 0755 ${S}/server/aesdsocket ${D}${bindir}/
-	install -m 0755 ${S}/server/aesdsocket-start-stop ${D}${sysconfdir}/init.d/S99aesdsocket
+	install -m 0755 ${S}/aesdsocket ${D}${bindir}/
+	install -m 0755 ${S}/aesdsocket-start-stop ${D}${sysconfdir}/init.d/S99aesdsocket
 }
